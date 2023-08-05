@@ -42,8 +42,8 @@ public class User {
     @NotNull
     private String password;
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-//    private List<Task> tasks;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Task> tasks;
 
     private ZonedDateTime createAt;
     private ZonedDateTime updatedAt;

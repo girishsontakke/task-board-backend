@@ -41,9 +41,9 @@ public class Task {
     @Column(columnDefinition = "varchar(50) default 'TODO'")
     private TaskStatus status;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    private User user;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     private ZonedDateTime createAt;
     private ZonedDateTime updatedAt;
