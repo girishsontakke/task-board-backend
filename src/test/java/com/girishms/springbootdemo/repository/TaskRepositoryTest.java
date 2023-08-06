@@ -32,7 +32,7 @@ public class TaskRepositoryTest {
     }
 
     @Test
-    public void taskRepository_saveTask_rejectNullTitle(){
+    public void taskRepository_saveTask_rejectOnNullTitle(){
         // Arrange
         Task task = Task.builder()
                 .description("description of test task")
