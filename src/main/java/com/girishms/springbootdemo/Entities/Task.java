@@ -1,5 +1,6 @@
 package com.girishms.springbootdemo.Entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.girishms.springbootdemo.constants.TaskStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -16,7 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.ZonedDateTime;
 
@@ -27,6 +27,7 @@ import java.time.ZonedDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
