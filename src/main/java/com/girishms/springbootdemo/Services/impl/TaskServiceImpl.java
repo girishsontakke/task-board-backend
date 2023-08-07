@@ -51,8 +51,7 @@ public class TaskServiceImpl implements TaskService {
                     .readValue(objectMapper.writeValueAsString(task));
             return taskRepository.save(updatedTask);
         }catch (JsonProcessingException e){
-            throw new CustomException(ErrorCode.JSON_MAPPING_EXCEPTION,
-                    "Exception while merging user object in update user flow");
+            throw new CustomException(ErrorCode.JSON_MAPPING_EXCEPTION);
         }
     }
 }
