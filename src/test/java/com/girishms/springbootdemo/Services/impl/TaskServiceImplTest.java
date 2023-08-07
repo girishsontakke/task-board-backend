@@ -72,7 +72,7 @@ class TaskServiceImplTest {
     }
 
     @Test
-    void testUpdateTask() throws JsonProcessingException {
+    void testUpdateTask() {
         mock(ObjectMapper.class, CALLS_REAL_METHODS);
         Task updatedTask = Task.builder()
                 .id(task.getId())
