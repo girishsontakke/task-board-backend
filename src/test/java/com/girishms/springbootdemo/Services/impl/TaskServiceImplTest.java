@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +47,7 @@ class TaskServiceImplTest {
 
     @Test
     void testGetTasks() {
-        when(taskRepository.findAll()).thenReturn(new ArrayList<>(Arrays.asList(task)));
+        when(taskRepository.findAll()).thenReturn(new ArrayList<>(Collections.singletonList(task)));
         List<Task> taskList = taskService.getTasks();
         assertThat(taskList.size()).isEqualTo(1);
         assertThat(taskList.get(0)).isEqualTo(task);
@@ -58,7 +59,6 @@ class TaskServiceImplTest {
         assertThat(taskService.getTaskById(1L)).isEqualTo(task);
     }
 
-    ;
 
     @Test
     void testCreateTask() {
@@ -67,7 +67,7 @@ class TaskServiceImplTest {
     }
 
     @Test
-    void testUpdateTask() throws JsonProcessingException {
+    void testUpdateTask() {
         when(taskRepository.findById(task.getId())).thenReturn(Optional.ofNullable(task));
         when(taskRepository.save(any())).thenAnswer(invocationOnMock -> invocationOnMock.getArguments()[0]);
 

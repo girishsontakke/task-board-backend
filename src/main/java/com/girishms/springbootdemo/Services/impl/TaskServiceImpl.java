@@ -1,7 +1,6 @@
 package com.girishms.springbootdemo.Services.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.girishms.springbootdemo.Entities.Task;
 import com.girishms.springbootdemo.Repositories.TaskRepository;
@@ -51,7 +50,8 @@ public class TaskServiceImpl implements TaskService {
                     .readValue(objectMapper.writeValueAsString(task));
             return taskRepository.save(updatedTask);
         }catch (JsonProcessingException e){
-            throw new CustomException(ErrorCode.JSON_MAPPING_EXCEPTION);
+            throw new CustomException(ErrorCode.JSON_MAPPING_EXCEPTION,
+                    "Exception while merging user object in update user flow");
         }
     }
 }
