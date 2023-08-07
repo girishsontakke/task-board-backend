@@ -7,4 +7,5 @@ public interface TaskService {
     List<Task> getTasks();
     Task getTaskById(Long id);
     Task createTask(Task task);
+    Task updateTask(Task task);
 }
